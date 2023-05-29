@@ -26,9 +26,15 @@ public class Program {
 	   for(Seller obj : list) {
 		   System.out.println(obj);
 	   }
-	   System.out.println("----TEST 3 ----");
+	   System.out.println("----TEST 4 ----");
 	   Seller newSeller = new Seller(null,"Greg","Greg@gmail.com",new Date(),4000.0,department);
 	   selldao.insert(newSeller);
 	   System.out.println("Adicionado: " + newSeller.getId());
+	   
+	   System.out.println("----TEST 5 ----");
+	   sell = selldao.findById(1);
+	   sell.setName("Martha wayne");
+	   selldao.update(sell);
+	   System.out.println("Update feito");
    } 
 }
