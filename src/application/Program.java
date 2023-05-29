@@ -2,6 +2,7 @@ package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -11,6 +12,7 @@ import model.entities.Seller;
 public class Program {
    public static void main(String[] args) {
 	   
+	   Scanner teclado = new Scanner(System.in);
 	   SellerDao selldao = DaoFactory.createSellerDao();
 	   System.out.println("----TEST----");
 	   Seller sell = selldao.findById(3);
@@ -36,5 +38,11 @@ public class Program {
 	   sell.setName("Martha wayne");
 	   selldao.update(sell);
 	   System.out.println("Update feito");
+	   System.out.println("----TEST 6 ----");
+	   System.out.println("Entre com um id para deletar: ");
+	   int id = teclado.nextInt();
+	   selldao.deleteById(id);
+	   System.out.println("Deletado com sucesso! ");
+	   teclado.close();
    } 
 }
